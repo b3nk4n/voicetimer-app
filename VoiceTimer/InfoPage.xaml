@@ -1,0 +1,115 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="VoiceTimer.InfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource ThemeForegroundLight}"
+    SupportedOrientations="Portrait"  Orientation="Portrait" shell:SystemTray.IsVisible="True" shell:SystemTray.BackgroundColor="{StaticResource ThemeBackgroundMediumColor}"
+    shell:SystemTray.ForegroundColor="{StaticResource ThemeForegroundLightColor}">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{StaticResource ThemeBackgroundDark}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource ThemeTextNormalStyle}" Margin="12,0"/>
+            <TextBlock Text="{Binding Path=LocalizedResources.CommandsHeader, Source={StaticResource LocalizedStrings}}" Margin="9,-7,0,0" Style="{StaticResource ThemeTextTitle0Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="{Binding Path=LocalizedResources.CommandsIntro, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextNormalStyle}" TextWrapping="Wrap"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="12">
+                        <Border Width="36" Height="36" VerticalAlignment="Top" Margin="0,8,4,0">
+                            <Image Source="Assets/Images/windows.png"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4" />
+                        </Border>
+                        <StackPanel Width="400">
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands1Title, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextTitle1Style}" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands1Message, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextNormalStyle}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="12">
+                        <Border Width="36" Height="36" VerticalAlignment="Top" Margin="0,8,4,0">
+                            <Image Source="Assets/Images/speak.png"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4" />
+                        </Border>
+                        <StackPanel Width="400">
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Title, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextTitle1Style}" />
+                            <TextBlock Style="{StaticResource ThemeTextNormalStyle}" TextWrapping="Wrap">
+                                    <Run Text="{Binding Path=LocalizedResources.Commands2Message1, Source={StaticResource LocalizedStrings}}" />
+                                    <Run Text="{Binding Path=LocalizedResources.Commands2Message2, Source={StaticResource LocalizedStrings}}" FontStyle="Italic" />
+                                    <Run Text="{Binding Path=LocalizedResources.Commands2Message3, Source={StaticResource LocalizedStrings}}" />
+                            </TextBlock>
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet1, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet2, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet3, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet4, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet5, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                        </StackPanel>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="12">
+                        <Border Width="36" Height="36" VerticalAlignment="Top" Margin="0,8,4,0">
+                            <Image Source="Assets/Images/sleep.png"
+                                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4" />
+                        </Border>
+                        <StackPanel Width="400">
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands3Title, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextTitle1Style}" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands3Message, Source={StaticResource LocalizedStrings}}"
+                                Style="{StaticResource ThemeTextNormalStyle}" TextWrapping="Wrap" />
+                        </StackPanel>
+                    </StackPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

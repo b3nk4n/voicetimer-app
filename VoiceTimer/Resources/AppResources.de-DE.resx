@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutTitle" xml:space="preserve">
+    <value>hilfe</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="Alarm" xml:space="preserve">
+    <value>Alarmton</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="AlertDialogMessage" xml:space="preserve">
+    <value>Timer abgelaufen!</value>
+    <comment>AlertDialog</comment>
+  </data>
+  <data name="AppBarInfo" xml:space="preserve">
+    <value>info</value>
+    <comment>AppBar</comment>
+  </data>
+  <data name="AppBarOffline" xml:space="preserve">
+    <value>offline gehen</value>
+    <comment>AppBar</comment>
+  </data>
+  <data name="ApplicationAuthor" xml:space="preserve">
+    <value>von Benjamin Sautermeister</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="ApplicationDescription" xml:space="preserve">
+    <value>Die schnelle und einfache Timer App für Windows Phone mit Spracheingabe.</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>voiceTIMER</value>
+    <comment>General</comment>
+  </data>
+  <data name="ApplicationVersion" xml:space="preserve">
+    <value>1.0</value>
+    <comment>General</comment>
+  </data>
+  <data name="Commands1Message" xml:space="preserve">
+    <value>Halte den Windows-Knopf deines Smartphones gedrückt bis der Sprachdialog erscheint.</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands1Title" xml:space="preserve">
+    <value>1. Spracheingabe aktivieren</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet1" xml:space="preserve">
+    <value>- " ...für 1 Stunde und 20 Minuten. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet2" xml:space="preserve">
+    <value>- " ...abbrechen. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet3" xml:space="preserve">
+    <value>- " ...auf wann ist der Timer gestellt? "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet4" xml:space="preserve">
+    <value>- " ...wie viel Zeit habe ich noch? "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet5" xml:space="preserve">
+    <value>- " ...um 5 Minuten verlängern. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Message1" xml:space="preserve">
+    <value>Sag</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Message2" xml:space="preserve">
+    <value> "Voice Timer..."  </value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Message3" xml:space="preserve">
+    <value>gefolgt von deinem Wunsch. Zum Beispiel:</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Title" xml:space="preserve">
+    <value>2. Sprechen</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands3Message" xml:space="preserve">
+    <value>VoiceTimer kümmert sich um den Rest...</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands3Title" xml:space="preserve">
+    <value>3. Los legen</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="CommandsHeader" xml:space="preserve">
+    <value>sprachbefehle</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="CommandsIntro" xml:space="preserve">
+    <value>Diese Anwendung unterstützt Windows Phone Spachbefehle. Befolge diese einfachen Schritte um deinen Timer noch schneller und einfacher stellen zu können:</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="FeedbackBodyText" xml:space="preserve">
+    <value>[Dein Feedback hier]
+
+
+---------------------------------
+Device Name: {0}
+Device Manufacturer: {1}
+Device Firmware Version: {2}
+Device Hardware Version: {3}
+Application Version: {4}
+---------------------------------</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackEmail" xml:space="preserve">
+    <value>apps@bsautermeister.de</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackMessageText" xml:space="preserve">
+    <value>Schade dass Sie voiceTIMER nicht bewerten wollen.
+
+Erzählen Sie uns von Ihren Erfahrungen oder teilen Sie uns Vorschläge mit, damit wir voiceTIMER noch besser machen können.</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackNoText" xml:space="preserve">
+    <value>nein danke</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackSubject" xml:space="preserve">
+    <value>voiceTIMER Feedback </value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackTitleText" xml:space="preserve">
+    <value>Können wir es besser machen?</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="FeedbackYesText" xml:space="preserve">
+    <value>feedback</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="MoreApps" xml:space="preserve">
+    <value>mehr apps</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="PrivacyInfo" xml:space="preserve">
+    <value>datenschutz informationen</value>
+    <comment>About Page</comment>
+  </data>
+  <data name="RateAndReview" xml:space="preserve">
+    <value>bewerten und kritik schreiben</value>
+    <comment>AboutPage</comment>
+  </data>
+  <data name="RatingMessage10Text" xml:space="preserve">
+    <value>Es scheint als ob voiceTIMER Ihnen sehr gefällt!
+
+Warum geben Sie uns nicht eine 5 Sterne Bewertung um zu zeigen, dass Sie unsere Arbeit zu schätzen wissen?</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="RatingMessage5Text" xml:space="preserve">
+    <value>Wir würden uns freuen, wenn Sie unsere App mit 5 Sternen bewerten.
+
+Das würde uns sehr motivieren um die App noch besser zu machen!</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="RatingNoText" xml:space="preserve">
+    <value>nein danke</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="RatingTitleText" xml:space="preserve">
+    <value>Gefällt Ihnen voiceTIMER?</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="RatingYesText" xml:space="preserve">
+    <value>bewerten</value>
+    <comment>FeedbackDialogControl</comment>
+  </data>
+  <data name="ResourceFlowDirection" xml:space="preserve">
+    <value>LeftToRight</value>
+    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  </data>
+  <data name="ResourceLanguage" xml:space="preserve">
+    <value>de-DE</value>
+    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>einstellungen</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="SpeakAlarmAlreadySet" xml:space="preserve">
+    <value>Timer war bereits gestellt.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakAlarmSetFor" xml:space="preserve">
+    <value>Timer ist gestellt auf {0}.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakNoAlarmSet" xml:space="preserve">
+    <value>Timer ist nicht gestellt.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakStartTimer" xml:space="preserve">
+    <value>Stelle Timer auf {0} Minuten.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakStopTimer" xml:space="preserve">
+    <value>Timer ist jetzt deaktiviert</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakTimeLeft" xml:space="preserve">
+    <value>Du hast noch {0} Minuten übrig.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakTimeShifted" xml:space="preserve">
+    <value>Jetzt hast du noch etwa {0} Minuten übrig.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakTimeShiftedNoTimeLeft" xml:space="preserve">
+    <value>Timer ist nun abgelaufen.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SupportAndFeedback" xml:space="preserve">
+    <value>hilfe und feedback</value>
+    <comment>About Page</comment>
+  </data>
+  <data name="VibrationEnabled" xml:space="preserve">
+    <value>Vibration</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="VoiceCommands" xml:space="preserve">
+    <value>Sprachbefehle</value>
+    <comment>Settings Page</comment>
+  </data>
+  <data name="VoiceLanguage" xml:space="preserve">
+    <value>Sprache</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="VoiceStatus" xml:space="preserve">
+    <value>Status</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="VoiceSupported" xml:space="preserve">
+    <value>unterstützt</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="VoiceUnsupported" xml:space="preserve">
+    <value>nicht unterstützt</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="VoiceUnsupportedMessage" xml:space="preserve">
+    <value>Das installierte Sprachpaket wird in dieser Version der Anwendung leider noch nicht unterstützt. Unterstütze Sprachen für Spracheingaben sind Englisch (en-US, en-GB) und Deutsch (de-DE). Bitte prüfen Sie die Einstellungen ihres Smartphones.</value>
+    <comment>SettingsPage</comment>
+  </data>
+</root>
