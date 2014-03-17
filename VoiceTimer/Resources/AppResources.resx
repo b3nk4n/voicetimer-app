@@ -182,7 +182,7 @@
     <comment>SettingsPage</comment>
   </data>
   <data name="VoiceUnsupportedMessage" xml:space="preserve">
-    <value>Your installed language package is not supported  in the current version of this application. Supported languages for voice commands are English (en-US, en-GB) and German (de-DE). Please check your phone settings.</value>
+    <value>Your installed language package is not supported  in the current version of this application. Supported languages for voice commands are English (en-US, en-GB, en-IN) and German (de-DE). Please check your phone settings.</value>
     <comment>SettingsPage</comment>
   </data>
   <data name="VibrationEnabled" xml:space="preserve">
@@ -194,7 +194,7 @@
     <comment>SettingsPage</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.0</value>
+    <value>1.1</value>
     <comment>General</comment>
   </data>
   <data name="FeedbackBodyText" xml:space="preserve">
@@ -363,5 +363,13 @@ Showing us some love on the store helps us to continue to work on the app and ma
   <data name="SpeakTimeShiftedNoTimeLeft" xml:space="preserve">
     <value>Time has now exceeded.</value>
     <comment>Voice</comment>
+  </data>
+  <data name="VoiceFeedback" xml:space="preserve">
+    <value>Play audio confirmations</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="SuppressLockScreen" xml:space="preserve">
+    <value>Suppress lock screen</value>
+    <comment>SettingsPage</comment>
   </data>
 </root>

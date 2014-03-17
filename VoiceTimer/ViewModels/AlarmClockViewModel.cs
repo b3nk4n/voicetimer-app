@@ -28,7 +28,7 @@ namespace VoiceTimer.ViewModels
         /// <summary>
         /// The alarms unique name.
         /// </summary>
-        private const string ALARM_NAME = "voiceTimerAlarm";
+        private const string ALARM_NAME = "powerNapAlarm";
 
         /// <summary>
         /// Timer to adjust the alarm time each second.
@@ -63,7 +63,7 @@ namespace VoiceTimer.ViewModels
         /// <summary>
         /// The time when the user has set the alarm.
         /// </summary>
-        private readonly StoredObject<TimeSpan> _lastAlarmDuration = new StoredObject<TimeSpan>("lastAlarmDuration", TimeSpan.FromMinutes(30));
+        private readonly StoredObject<TimeSpan> _lastAlarmDuration = new StoredObject<TimeSpan>("lastAlarmDuration", TimeSpan.FromMinutes(20));
 
         /// <summary>
         /// the phones alarm scheduler.
@@ -125,7 +125,8 @@ namespace VoiceTimer.ViewModels
             _startCommand = new DelegateCommand<string>(
                 (minutes) =>
                 {
-                    var min = int.Parse(minutes);
+                    int min = 30;
+                    int.TryParse(minutes, out min);
                     Set(min);
                 },
                 (minutes) =>
@@ -136,7 +137,8 @@ namespace VoiceTimer.ViewModels
             _snoozeCommand = new DelegateCommand<string>(
                 (minutes) =>
                 {
-                    var min = int.Parse(minutes);
+                    int min = 5;
+                    int.TryParse(minutes, out min);
                     Snooze(min);
                 },
                 (minutes) =>
@@ -147,12 +149,14 @@ namespace VoiceTimer.ViewModels
             _antiSnoozeCommand = new DelegateCommand<string>(
                 (minutes) =>
                 {
-                    var min = int.Parse(minutes);
+                    int min = 1;
+                    int.TryParse(minutes, out min);
                     Snooze(-min);
                 },
                 (minutes) =>
                 {
-                    var min = int.Parse(minutes);
+                    int min = 1;
+                    int.TryParse(minutes, out min);
                     return IsAlarmSet && TimeToAlarm.TotalMinutes > min;
                 });
 
@@ -290,18 +294,18 @@ namespace VoiceTimer.ViewModels
         /// </summary>
         public void TryRemoveFromScheduler()
         {
-                var oldAlarm = ScheduledActionService.Find(ALARM_NAME) as Alarm;
+            var oldAlarm = ScheduledActionService.Find(ALARM_NAME) as Alarm;
 
-                if (oldAlarm != null)
+            if (oldAlarm != null)
+            {
+                // check if alarm was dismissed
+                if (oldAlarm.IsScheduled == false)
                 {
-                    // check if alarm was dismissed
-                    if (oldAlarm.IsScheduled == false)
-                    {
-                        Stop();
-                    }
-
-                    ScheduledActionService.Remove(ALARM_NAME);
+                    Stop();
                 }
+
+                ScheduledActionService.Remove(ALARM_NAME);
+            }
         }
 
         /// <summary>
@@ -352,13 +356,13 @@ namespace VoiceTimer.ViewModels
                     if (Settings.EnableVibration.Value)
                     {
                         if (_alarmStartCounter % ALARM_INTERVAL == ALARM_INTERVAL - 1 || _alarmStartCounter % ALARM_INTERVAL == ALARM_INTERVAL - 2)
-                        VibrateController.Default.Start(TimeSpan.FromSeconds(0.5));
+                            VibrateController.Default.Start(TimeSpan.FromSeconds(0.5));
                     }
 
                     if (_alarmSound == null)
                     {
                         StreamResourceInfo alarmResource = App.GetResourceStream(new Uri(Settings.AlarmUriString.Value, UriKind.Relative));
-                        SoundEffects.Instance.Load(Settings.AlarmUriString.Value, alarmResource);
+                        SoundEffects.Instance.Load(Settings.AlarmUriString.Value, alarmResource.Stream);
                         _alarmSound = SoundEffects.Instance[Settings.AlarmUriString.Value].CreateInstance();
 
                         // start silent (but 0 is a too silent start)
@@ -392,7 +396,7 @@ namespace VoiceTimer.ViewModels
                     (int)TimeToAlarm.TotalSeconds == 60) // 1 min
                     UpdateCommands();
             }
-            else 
+            else
             {
                 Progress = 0;
 

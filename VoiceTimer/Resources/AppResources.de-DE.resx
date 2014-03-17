@@ -150,7 +150,7 @@
     <comment>General</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.0</value>
+    <value>1.1</value>
     <comment>General</comment>
   </data>
   <data name="Commands1Message" xml:space="preserve">
@@ -336,6 +336,10 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
     <value>hilfe und feedback</value>
     <comment>About Page</comment>
   </data>
+  <data name="SuppressLockScreen" xml:space="preserve">
+    <value>Sperrbildschirm unterdrücken</value>
+    <comment>SettingsPage</comment>
+  </data>
   <data name="VibrationEnabled" xml:space="preserve">
     <value>Vibration</value>
     <comment>SettingsPage</comment>
@@ -343,6 +347,10 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
   <data name="VoiceCommands" xml:space="preserve">
     <value>Sprachbefehle</value>
     <comment>Settings Page</comment>
+  </data>
+  <data name="VoiceFeedback" xml:space="preserve">
+    <value>Akustische Bestätigung</value>
+    <comment>SettingsPage</comment>
   </data>
   <data name="VoiceLanguage" xml:space="preserve">
     <value>Sprache</value>
@@ -361,7 +369,7 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
     <comment>SettingsPage</comment>
   </data>
   <data name="VoiceUnsupportedMessage" xml:space="preserve">
-    <value>Das installierte Sprachpaket wird in dieser Version der Anwendung leider noch nicht unterstützt. Unterstütze Sprachen für Spracheingaben sind Englisch (en-US, en-GB) und Deutsch (de-DE). Bitte prüfen Sie die Einstellungen ihres Smartphones.</value>
+    <value>Das installierte Sprachpaket wird in dieser Version der Anwendung leider noch nicht unterstützt. Unterstütze Sprachen für Spracheingaben sind Englisch (en-US, en-GB, en-IN) und Deutsch (de-DE). Bitte prüfen Sie die Einstellungen ihres Smartphones.</value>
     <comment>SettingsPage</comment>
   </data>
 </root>

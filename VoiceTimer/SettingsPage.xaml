@@ -356,8 +356,12 @@
                         </DataTemplate>
                     </toolkit:ListPicker.FullModeItemTemplate>
                 </toolkit:ListPicker>
+                <toolkit:ToggleSwitch x:Name="SuppressLockScreenToggleSwitch" IsChecked="True" Margin="0,-20,0,0" Style="{StaticResource ThemedToggleSwitchStyle}"
+                                      Header="{Binding Path=LocalizedResources.SuppressLockScreen, Source={StaticResource LocalizedStrings}}"/>
                 <toolkit:ToggleSwitch x:Name="VibrationToggleSwitch" IsChecked="True" Margin="0,-20,0,0" Style="{StaticResource ThemedToggleSwitchStyle}"
                                       Header="{Binding Path=LocalizedResources.VibrationEnabled, Source={StaticResource LocalizedStrings}}"/>
+                <toolkit:ToggleSwitch x:Name="VoiceFeedbackToggleSwitch"  Margin="0,12,0,0" IsChecked="True"  Style="{StaticResource ThemedToggleSwitchStyle}"
+                                      Header="{Binding Path=LocalizedResources.VoiceFeedback, Source={StaticResource LocalizedStrings}}"/>
                 <TextBlock Margin="12,0,12,0" Style="{StaticResource ThemeTextTitle2Style}"
                            Text="{Binding Path=LocalizedResources.VoiceCommands, Source={StaticResource LocalizedStrings}}" />
                 <Grid>

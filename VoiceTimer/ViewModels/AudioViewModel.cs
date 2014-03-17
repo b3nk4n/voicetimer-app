@@ -3,6 +3,7 @@ using PhoneKit.Framework.Audio;
 using PhoneKit.Framework.Core.MVVM;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,8 +54,8 @@ namespace VoiceTimer.ViewModels
             _imageUri = imageUri;
 
             // load audio
-            StreamResourceInfo alarmResource = App.GetResourceStream(new Uri(_uriString, UriKind.Relative));
-            SoundEffects.Instance.Load(_uriString, alarmResource);
+            Stream audioStream = App.GetResourceStream(new Uri(_uriString, UriKind.Relative)).Stream;
+            SoundEffects.Instance.Load(_uriString, audioStream);
 
             // commands
             _playCommand = new DelegateCommand(
@@ -72,7 +73,7 @@ namespace VoiceTimer.ViewModels
             get
             {
                 return _title;
-            } 
+            }
         }
 
         /// <summary>

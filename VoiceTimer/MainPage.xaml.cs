@@ -110,6 +110,12 @@ namespace VoiceTimer
             // determine view state
             UpdateGeneralViewState();
 
+            if (Settings.EnableSuppressLockScreen.Value)
+            {
+                // disable lock screen
+                PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
+            }
+
             // set data context to view model
             DataContext = AlarmClockViewModel.Instance;
         }
@@ -207,7 +213,8 @@ namespace VoiceTimer
         /// <param name="minutes">The length of the timer in minutes.</param>
         private void HandleStartTimer1Command(string minutes)
         {
-            int min = int.Parse(minutes);
+            int min = 30;
+            int.TryParse(minutes, out min);
 
             StartTimer(min);
         }
@@ -219,59 +226,62 @@ namespace VoiceTimer
         /// <param name="minutes">The length to set in minutes.</param>
         private void HandleStartTimer2Command(string hours, string minutes)
         {
-            int min = int.Parse(minutes);
-            int h = int.Parse(hours);
+            int h = 0;
+            int min = 30;
+            int.TryParse(minutes, out min);
+            int.TryParse(hours, out h);
+            int totalMins = 60 * h + min;
 
-            StartTimer(h * 60 + min);
+            StartTimer(totalMins);
         }
 
         /// <summary>
         /// Starts the timer and gives audio feedback.
         /// </summary>
         /// <param name="minutes">The length to set in minutes.</param>
-        private async void StartTimer(int minutes)
+        private void StartTimer(int minutes)
         {
             if (AlarmClockViewModel.Instance.Set(minutes))
             {
-                await Speech.Instance.Synthesizer.SpeakTextAsync(string.Format(AppResources.SpeakStartTimer, minutes));
+                GiveVoiceFeedback(string.Format(AppResources.SpeakStartTimer, minutes));
             }
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakAlarmAlreadySet);
+                GiveVoiceFeedback(AppResources.SpeakAlarmAlreadySet);
         }
 
         /// <summary>
         /// Handles the stop timer command.
         /// </summary>
-        private async void HandleStopTimerCommand()
+        private void HandleStopTimerCommand()
         {
             if (AlarmClockViewModel.Instance.Stop())
             {
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakStopTimer);
+                GiveVoiceFeedback(AppResources.SpeakStopTimer);
             }
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakNoAlarmSet);
+                GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
         }
 
         /// <summary>
         /// Handles the check alarm time command.
         /// </summary>
-        private async void HandleCheckAlarmTimeCommand()
+        private void HandleCheckAlarmTimeCommand()
         {
             if (AlarmClockViewModel.Instance.IsAlarmSet)
-                await Speech.Instance.Synthesizer.SpeakTextAsync(string.Format(AppResources.SpeakAlarmSetFor, AlarmClockViewModel.Instance.AlarmTime.ToString("t"))); // 12:12 PM
+                GiveVoiceFeedback(string.Format(AppResources.SpeakAlarmSetFor, AlarmClockViewModel.Instance.AlarmTime.ToString("t"))); // 12:12 PM
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakNoAlarmSet);
+                GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
         }
 
         /// <summary>
         /// Handles the check remaining time command.
         /// </summary>
-        private async void HandleCheckRemainingTimeCommand()
+        private void HandleCheckRemainingTimeCommand()
         {
             if (AlarmClockViewModel.Instance.IsAlarmSet)
-                await Speech.Instance.Synthesizer.SpeakTextAsync(string.Format(AppResources.SpeakTimeLeft, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
+                GiveVoiceFeedback(string.Format(AppResources.SpeakTimeLeft, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakNoAlarmSet);
+                GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
         }
 
         /// <summary>
@@ -280,7 +290,8 @@ namespace VoiceTimer
         /// <param name="minutes">The minutes to extend the alarm.</param>
         private void HandleExtendAlarmTime1Command(string minutes)
         {
-            int min = int.Parse(minutes);
+            int min = 5;
+            int.TryParse(minutes, out min);
 
             ExtendAlarmTime(min);
         }
@@ -292,8 +303,11 @@ namespace VoiceTimer
         /// <param name="minutes">The minutes to extend the alarm.</param>
         private void HandleExtendAlarmTime2Command(string hours, string minutes)
         {
-            int min = int.Parse(minutes);
-            int h = int.Parse(hours);
+            int h = 0;
+            int min = 30;
+            int.TryParse(minutes, out min);
+            int.TryParse(hours, out h);
+            int totalMins = 60 * h + min;
 
             ExtendAlarmTime(h * 60 + min);
         }
@@ -302,12 +316,12 @@ namespace VoiceTimer
         /// Extends the alarm time and gives audio feedback.
         /// </summary>
         /// <param name="minutes">The time to extend in minutes.</param>
-        private async void ExtendAlarmTime(int minutes)
+        private void ExtendAlarmTime(int minutes)
         {
             if (AlarmClockViewModel.Instance.Snooze(minutes))
-                await Speech.Instance.Synthesizer.SpeakTextAsync(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
+                GiveVoiceFeedback(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakNoAlarmSet);
+                GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
         }
 
         /// <summary>
@@ -316,7 +330,8 @@ namespace VoiceTimer
         /// <param name="minutes">The minutes to reduce the alarm.</param>
         private void HandleReduceAlarmTime1Command(string minutes)
         {
-            int min = int.Parse(minutes);
+            int min = 5;
+            int.TryParse(minutes, out min);
 
             ReduceAlarmTime( min);
         }
@@ -328,8 +343,11 @@ namespace VoiceTimer
         /// <param name="minutes">The minutes to reduce the alarm.</param>
         private void HandleReduceAlarmTime2Command(string hours, string minutes)
         {
-            int min = int.Parse(minutes);
-            int h = int.Parse(hours);
+            int h = 0;
+            int min = 30;
+            int.TryParse(minutes, out min);
+            int.TryParse(hours, out h);
+            int totalMins = 60 * h + min;
 
             ReduceAlarmTime(h * 60 + min);
         }
@@ -338,17 +356,27 @@ namespace VoiceTimer
         /// Reduces the alarm time and gives audio feedback.
         /// </summary>
         /// <param name="minutes">The time to reduce in minutes.</param>
-        private async void ReduceAlarmTime(int minutes)
+        private void ReduceAlarmTime(int minutes)
         {
             if (AlarmClockViewModel.Instance.Snooze(-minutes))
             {
                 if (AlarmClockViewModel.Instance.TimeToAlarm.TotalSeconds > 0)
-                    await Speech.Instance.Synthesizer.SpeakTextAsync(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
+                    GiveVoiceFeedback(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
                 else
-                    await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakTimeShiftedNoTimeLeft);
+                    GiveVoiceFeedback(AppResources.SpeakTimeShiftedNoTimeLeft);
             }
             else
-                await Speech.Instance.Synthesizer.SpeakTextAsync(AppResources.SpeakNoAlarmSet);
+                GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
+        }
+
+        /// <summary>
+        /// Speaks a text if the setting for voice feedback is active.
+        /// </summary>
+        /// <param name="text">The text to speak.</param>
+        private async void GiveVoiceFeedback(string text)
+        {
+            if (Settings.EnableVoiceFeedback.Value)
+                await Speech.Instance.TrySpeakTextAsync(text);
         }
 
         /// <summary>

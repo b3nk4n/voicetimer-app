@@ -31,7 +31,9 @@ namespace VoiceTimer
         {
             base.OnNavigatedTo(e);
 
+            this.SuppressLockScreenToggleSwitch.IsChecked = Settings.EnableSuppressLockScreen.Value;
             this.VibrationToggleSwitch.IsChecked = Settings.EnableVibration.Value;
+            this.VoiceFeedbackToggleSwitch.IsChecked = Settings.EnableVoiceFeedback.Value;
             BindAudioItems();
             RefreshVoiceCommandsStatus();
         }
@@ -44,7 +46,9 @@ namespace VoiceTimer
         {
             base.OnNavigatedFrom(e);
 
+            Settings.EnableSuppressLockScreen.Value = this.SuppressLockScreenToggleSwitch.IsChecked.Value;
             Settings.EnableVibration.Value = this.VibrationToggleSwitch.IsChecked.Value;
+            Settings.EnableVoiceFeedback.Value = this.VoiceFeedbackToggleSwitch.IsChecked.Value;
             
             var selectedAudio = this.AudioList.SelectedItem as AudioViewModel;
             if (selectedAudio != null)
@@ -59,6 +63,7 @@ namespace VoiceTimer
             // verify the current language is supported
             if (InstalledVoices.Default.Language == "de-DE" ||
                 InstalledVoices.Default.Language == "en-GB" ||
+                InstalledVoices.Default.Language == "en-IN" ||
                 InstalledVoices.Default.Language == "en-US")
             {
                 StatusText.Text = AppResources.VoiceSupported;
