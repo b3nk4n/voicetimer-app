@@ -169,7 +169,7 @@ namespace VoiceTimer.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die - &quot; ...cancel nap. &quot; ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die - &quot; ...cancel. &quot; ähnelt.
         /// </summary>
         public static string Commands2Bullet2 {
             get {

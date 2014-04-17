@@ -249,7 +249,10 @@ namespace VoiceTimer.ViewModels
                 UpdateCommands();
 
                 // enable lock screen
-                PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Enabled;
+                if (!Settings.EnableSuppressLockScreen.Value)
+                {
+                    PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Enabled;
+                }
 
                 return true;
             }
