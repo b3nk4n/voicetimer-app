@@ -16,9 +16,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource ThemeForegroundLight}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" shell:SystemTray.BackgroundColor="{StaticResource ThemeBackgroundMediumColor}"
-    shell:SystemTray.ForegroundColor="{StaticResource ThemeForegroundLightColor}">
+    SupportedOrientations="Portrait" Orientation="Portrait">
     
     <phone:PhoneApplicationPage.Resources>
         <!-- convertsers -->

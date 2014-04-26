@@ -92,7 +92,7 @@ namespace VoiceTimer.Controls
         /// </summary>
         private void SetFrameworkBranding()
         {
-            BrandingElement.Text = "powered by PhoneKit Framework " + "1.0";
+            BrandingElement.Text = "powered by PhoneKit Framework " + VersionHelper.GetFrameworkVersionText();
         }
 
         #endregion

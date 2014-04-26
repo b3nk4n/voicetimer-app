@@ -9,6 +9,8 @@ using Microsoft.Phone.Shell;
 using VoiceTimer.Resources;
 using VoiceTimer.ViewModels;
 using PhoneKit.Framework.Support;
+using BugSense;
+using BugSense.Core.Model;
 
 namespace VoiceTimer
 {
@@ -25,8 +27,8 @@ namespace VoiceTimer
         /// </summary>
         public App()
         {
-            // Globaler Handler für nicht abgefangene Ausnahmen.
-            UnhandledException += Application_UnhandledException;
+            // Initialize BugSense
+            BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "4b97a79d");
 
             // Standard-XAML-Initialisierung
             InitializeComponent();
@@ -92,23 +94,11 @@ namespace VoiceTimer
         // Code, der bei einem Navigationsfehler ausgeführt wird
         private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
         {
-            ErrorReportingManager.Instance.Save(e.Exception);
+            ErrorReportingManager.Instance.Save(e.Exception, AppResources.ApplicationVersion, AppResources.ResourceLanguage);
 
             if (Debugger.IsAttached)
             {
                 // Navigationsfehler. Unterbrechen und Debugger öffnen
-                Debugger.Break();
-            }
-        }
-
-        // Code, der bei Ausnahmefehlern ausgeführt wird
-        private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
-        {
-            ErrorReportingManager.Instance.Save(e.ExceptionObject);
-
-            if (Debugger.IsAttached)
-            {
-                // Ein Ausnahmefehler ist aufgetreten. Unterbrechen und Debugger öffnen
                 Debugger.Break();
             }
         }

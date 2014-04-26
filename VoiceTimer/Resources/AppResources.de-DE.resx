@@ -150,11 +150,15 @@
     <comment>General</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.1</value>
+    <value>1.1.1</value>
     <comment>General</comment>
   </data>
   <data name="Commands1Message" xml:space="preserve">
     <value>Halte den Windows-Knopf deines Smartphones gedrückt bis der Sprachdialog erscheint.</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands1Message_8_1_OS" xml:space="preserve">
+    <value>Halte den Suchen-Knopf deines Smartphones gedrückt bis der Sprachdialog erscheint.</value>
     <comment>InfoPage</comment>
   </data>
   <data name="Commands1Title" xml:space="preserve">

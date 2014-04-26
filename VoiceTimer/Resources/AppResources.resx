@@ -194,7 +194,7 @@
     <comment>SettingsPage</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.1</value>
+    <value>1.1.1</value>
     <comment>General</comment>
   </data>
   <data name="FeedbackBodyText" xml:space="preserve">
@@ -371,5 +371,9 @@ Showing us some love on the store helps us to continue to work on the app and ma
   <data name="SuppressLockScreen" xml:space="preserve">
     <value>Suppress lock screen</value>
     <comment>SettingsPage</comment>
+  </data>
+  <data name="Commands1Message_8_1_OS" xml:space="preserve">
+    <value>Press and hold the Search-Button of you phone until the voice input dialog pops up.</value>
+    <comment>InfoPage</comment>
   </data>
 </root>

@@ -11,8 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource ThemeForegroundLight}"
-    SupportedOrientations="Portrait"  Orientation="Portrait" shell:SystemTray.IsVisible="True" shell:SystemTray.BackgroundColor="{StaticResource ThemeBackgroundMediumColor}"
-    shell:SystemTray.ForegroundColor="{StaticResource ThemeForegroundLightColor}">
+    SupportedOrientations="Portrait"  Orientation="Portrait">
 
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
@@ -57,13 +56,15 @@
 
                     <StackPanel Orientation="Horizontal" Margin="12">
                         <Border Width="36" Height="36" VerticalAlignment="Top" Margin="0,8,4,0">
-                            <Image Source="Assets/Images/windows.png"
-                                       HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4" />
+                            <!-- note: this image is version dependent -->
+                            <Image x:Name="VoiceCommandsActivationImage" Source="Assets/Images/windows.png"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,4" />
                         </Border>
                         <StackPanel Width="400">
                             <TextBlock Text="{Binding Path=LocalizedResources.Commands1Title, Source={StaticResource LocalizedStrings}}"
                                 Style="{StaticResource ThemeTextTitle1Style}" />
-                            <TextBlock Text="{Binding Path=LocalizedResources.Commands1Message, Source={StaticResource LocalizedStrings}}"
+                            <!-- note: this content is version dependent -->
+                            <TextBlock x:Name="VoiceCommandsActivationDescription" Text="{Binding Path=LocalizedResources.Commands1Message, Source={StaticResource LocalizedStrings}}"
                                 Style="{StaticResource ThemeTextNormalStyle}" TextWrapping="Wrap" />
                         </StackPanel>
                     </StackPanel>
