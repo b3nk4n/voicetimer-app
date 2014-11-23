@@ -237,12 +237,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="PhoneKit.Framework">
-      <HintPath>..\Lib\PhoneKit.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="PhoneKit.Framework.Core">
-      <HintPath>..\Lib\PhoneKit.Framework.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.20\lib\sl4-windowsphone71\System.Net.Http.dll</HintPath>
     </Reference>
@@ -252,6 +246,16 @@
     <Reference Include="System.Net.Http.Primitives">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.20\lib\sl4-windowsphone71\System.Net.Http.Primitives.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\PhoneKit.Framework\PhoneKit.Framework.Core\PhoneKit.Framework.Core.csproj">
+      <Project>{0028ac27-312b-4f73-b8f2-c3b8d9740a86}</Project>
+      <Name>PhoneKit.Framework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PhoneKit.Framework\PhoneKit.Framework\PhoneKit.Framework.csproj">
+      <Project>{9274ed00-223e-41d1-a1bc-e7cdd8c8d34d}</Project>
+      <Name>PhoneKit.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

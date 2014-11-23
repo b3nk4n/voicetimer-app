@@ -43,7 +43,7 @@
             <Setter Property="Foreground" Value="{StaticResource ThemeForegroundDark}" />
         </Style>
 
-        <Style x:Key="RoundButton" TargetType="Button">
+        <Style x:Key="RoundButton" TargetType="ButtonBase">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="{StaticResource ThemeForegroundLight}"/>
             <Setter Property="Foreground" Value="{StaticResource ThemeForegroundLight}"/>
@@ -54,7 +54,7 @@
             <Setter Property="Margin" Value="-5,0,-5,0"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
+                    <ControlTemplate TargetType="ButtonBase">
                         <Grid Background="Transparent">
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">

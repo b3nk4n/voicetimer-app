@@ -10,13 +10,13 @@ using Microsoft.Phone.Shell;
 using VoiceTimer.Resources;
 using PhoneKit.Framework.Voice;
 using VoiceTimer.ViewModels;
-using Coding4Fun.Toolkit.Controls;
 using PhoneKit.Framework.OS;
 using Microsoft.Phone.Net.NetworkInformation;
 using System.Windows.Threading;
 using System.Windows.Media;
 using PhoneKit.Framework.Core.Net;
 using PhoneKit.Framework.Support;
+using System.Windows.Controls.Primitives;
 
 namespace VoiceTimer
 {
@@ -104,7 +104,7 @@ namespace VoiceTimer
                 (!AlarmClockViewModel.Instance.IsAlarmSet || AlarmClockViewModel.Instance.TimeToAlarm.Minutes > 5))
             {
                 // fire startup events only when the app started without voice command
-                StartupActionManager.Instance.Fire();
+                StartupActionManager.Instance.Fire(e);
             }
 
             // determine view state
@@ -386,6 +386,7 @@ namespace VoiceTimer
         {
             // assigns a new application bar to the page.
             ApplicationBar = new ApplicationBar();
+            ApplicationBar.Opacity = 0.99;
             ApplicationBar.BackgroundColor = (Color)Application.Current.Resources["ThemeBackgroundMediumColor"];
             ApplicationBar.ForegroundColor = (Color)Application.Current.Resources["ThemeForegroundLightColor"];
 
@@ -415,18 +416,6 @@ namespace VoiceTimer
             };
         }
 
-
-
-        /// <summary>
-        /// Open the timespan picker box.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        private void CustomNapClick(object sender, RoutedEventArgs e)
-        {
-            CustomNapTimePicker.OpenPicker();
-        }
-
         /// <summary>
         /// Handles the stop button click event.
         /// </summary>
@@ -435,6 +424,9 @@ namespace VoiceTimer
         private void StopButtonClick(object sender, RoutedEventArgs e)
         {
             DeactivateAnimation.Begin();
+
+            UpdatePlusMinusButtons();
+            UpdatePreviewTime();
         }
 
         /// <summary>
@@ -456,19 +448,20 @@ namespace VoiceTimer
         /// <param name="e">The event args.</param>
         private void ChangeAlarmTimeClick(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
+            var button = sender as ButtonBase;
 
             if (button == null)
                 return;
 
-            int minDelta = int.Parse(button.Tag.ToString());
+            int minDelta = 1;
+            int.TryParse(button.Tag.ToString(), out minDelta);
             var value = CustomNapTimePicker.Value.Value;
 
-            value = value.Add(TimeSpan.FromMinutes(minDelta));
+            value = value.Add(TimeSpan.FromSeconds(minDelta));
             
-            // verify at least 1 min
-            if (value.TotalMinutes < 1)
-                value = TimeSpan.FromMinutes(1);
+            // verify at least 1 sec
+            if (value.TotalSeconds < 1)
+                value = TimeSpan.FromSeconds(1);
 
             CustomNapTimePicker.Value = value;
         }
@@ -480,14 +473,28 @@ namespace VoiceTimer
         /// <param name="e">The event args.</param>
         private void CustomNapTimeChanged(object sender, RoutedPropertyChangedEventArgs<TimeSpan> e)
         {
+            UpdatePlusMinusButtons();
+
+            UpdatePreviewTime();
+        }
+
+        private void UpdatePlusMinusButtons()
+        {
             // update button view state in inactive mode.
             var minutes = (int)CustomNapTimePicker.Value.Value.TotalMinutes;
             bool noAlarmOn = !AlarmClockViewModel.Instance.IsAlarmSet;
 
-            ButtonMinus5.IsEnabled = minutes > 5 && noAlarmOn;
-            ButtonMinus1.IsEnabled = minutes > 1 && noAlarmOn;
-            ButtonPlus5.IsEnabled = noAlarmOn;
-            ButtonPlus1.IsEnabled = noAlarmOn;
+            ButtonMinus1.IsEnabled = minutes > 1;
+            ButtonPlus1.IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Updates the preview sleep time.
+        /// </summary>
+        private void UpdatePreviewTime()
+        {
+            var minutes = (int)CustomNapTimePicker.Value.Value.TotalMinutes;
+            AlarmClockViewModel.Instance.AlarmPreviewTime = DateTime.Now.AddMinutes(minutes);
         }
     }
 }

@@ -163,6 +163,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
+            <RowDefinition Height="72"/>
         </Grid.RowDefinitions>
         
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,-1,0,28" toolkit:TurnstileFeatherEffect.FeatheringIndex="0">
@@ -191,33 +192,25 @@
                 </Grid.Projection>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="52" />
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" VerticalAlignment="Bottom" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
+                <Grid Grid.Row="0" VerticalAlignment="Bottom" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
+                    <TextBlock Grid.Row="0" Text="{Binding AlarmPreviewTime, Converter={StaticResource DateToTimeConverter}, ConverterParameter=t}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="22"/>
                     <c4f:TimeSpanPicker x:Name="CustomNapTimePicker" Value="0:20:00" FontSize="108" HorizontalAlignment="Center"
-                                    Template="{StaticResource TimeSpanCustomStyle}" Min="0:01:00" />
-                </StackPanel>
+                                    Template="{StaticResource TimeSpanCustomStyle}" Min="0:01:00" IsHitTestVisible="False" />
+                </Grid>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"  toolkit:TurnstileFeatherEffect.FeatheringIndex="2" >
-                    <Button x:Name="ButtonMinus5" Width="92" Height="92" Style="{StaticResource RoundButton}" Tag="-5" Click="ChangeAlarmTimeClick">
-                        <TextBlock Text="-5" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button x:Name="ButtonMinus1" Width="92" Height="92" Style="{StaticResource RoundButton}" Tag="-1" Click="ChangeAlarmTimeClick">
-                        <TextBlock Text="-1" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button Width="92" Height="92" Style="{StaticResource RoundButton}" Click="CustomNapClick">
-                        <TextBlock Text="..." FontSize="32" Margin="0,0,2,2" FontWeight="Bold" />
-                    </Button>
-                    <Button x:Name="ButtonPlus1" Width="92" Height="92" Style="{StaticResource RoundButton}" Tag="1" Click="ChangeAlarmTimeClick">
-                        <TextBlock Text="+1" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button x:Name="ButtonPlus5" Width="92" Height="92" Style="{StaticResource RoundButton}" Tag="5" Click="ChangeAlarmTimeClick">
-                        <TextBlock Text="+5" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
+                    <RepeatButton x:Name="ButtonMinus1" Width="112" Height="112" Margin="12,0,54,0" Style="{StaticResource RoundButton}" Tag="-1" Click="ChangeAlarmTimeClick" Interval="1">
+                        <TextBlock Text="-" FontSize="64" Margin="0,-16,2,0" />
+                    </RepeatButton>
+                    <RepeatButton x:Name="ButtonPlus1" Width="112" Height="112" Margin="54,0,10,0" Style="{StaticResource RoundButton}" Tag="1" Click="ChangeAlarmTimeClick" Interval="1">
+                        <TextBlock Text="+" FontSize="64" Margin="0,-16,2,0" />
+                    </RepeatButton>
                 </StackPanel>
                 <Button Grid.Row="3" Click="StartAlarmClick"  toolkit:TurnstileFeatherEffect.FeatheringIndex="4"
-                            Width="164" Height="164" Style="{StaticResource RoundButton}">
+                            Width="176" Height="176" Style="{StaticResource RoundButton}">
                     <Path Data="M 10,0 L 10,60 L60,30 Z" Fill="{StaticResource ThemeForegroundLight}" Width="60" Height="60" />
                 </Button>
             </Grid>
@@ -227,7 +220,7 @@
             	</Grid.Projection>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition Height="52" />
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
@@ -238,22 +231,14 @@
                            Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"  toolkit:TurnstileFeatherEffect.FeatheringIndex="2"
                             Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}">
-                    <Button Command="{Binding AntiSnoozeCommand}" CommandParameter="5"
-                            Width="92" Height="92" Style="{StaticResource RoundButton}">
-                        <TextBlock Text="-5" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button Command="{Binding AntiSnoozeCommand}" CommandParameter="1"
-                            Width="92" Height="92" Style="{StaticResource RoundButton}" Margin="0,0,33,0">
-                        <TextBlock Text="-1" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button Command="{Binding SnoozeCommand}" CommandParameter="1"
-                            Width="92" Height="92" Style="{StaticResource RoundButton}" Margin="33,0,0,0">
-                        <TextBlock Text="+1" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
-                    <Button Command="{Binding SnoozeCommand}" CommandParameter="5"
-                            Width="92" Height="92" Style="{StaticResource RoundButton}">
-                        <TextBlock Text="+5" FontSize="32" Margin="0,0,2,2" />
-                    </Button>
+                    <RepeatButton Command="{Binding AntiSnoozeCommand}" CommandParameter="1" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="12,0,54,0">
+                        <TextBlock Text="-" FontSize="64" Margin="0,-16,2,0" />
+                    </RepeatButton>
+                    <RepeatButton Command="{Binding SnoozeCommand}" CommandParameter="1" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="54,0,12,0">
+                        <TextBlock Text="+" FontSize="64" Margin="0,-16,2,0" />
+                    </RepeatButton>
                 </StackPanel>
                 <Grid Grid.Row="2" Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}"  toolkit:TurnstileFeatherEffect.FeatheringIndex="4">
                     <ProgressBar Height="50" Value="{Binding Progress}" VerticalAlignment="Center" Foreground="{StaticResource ThemeForegroundDark}" Background="{StaticResource ThemeBackgroundMedium}"/>
@@ -263,7 +248,7 @@
                            HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource ThemeTextNormalStyle}" Margin="12,34,12,0" />
                 </Grid>
                 <Button Grid.Row="3" Command="{Binding StopCommand}"  toolkit:TurnstileFeatherEffect.FeatheringIndex="4"
-                        Width="164" Height="164" Style="{StaticResource RoundButton}" Click="StopButtonClick">
+                        Width="176" Height="176" Style="{StaticResource RoundButton}" Click="StopButtonClick">
                     <Rectangle Width="42" Height="42" Fill="{StaticResource ThemeForegroundLight}" />
                 </Button>
             </Grid>

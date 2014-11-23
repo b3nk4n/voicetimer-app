@@ -133,7 +133,7 @@ namespace VoiceTimer.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.2.1 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.3 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
