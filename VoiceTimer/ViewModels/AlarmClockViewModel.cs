@@ -140,11 +140,11 @@ namespace VoiceTimer.ViewModels
                 });
 
             _snoozeCommand = new DelegateCommand<string>(
-                (minutes) =>
+                (seconds) =>
                 {
-                    int min = 5;
-                    int.TryParse(minutes, out min);
-                    Snooze(min);
+                    int sec = 5;
+                    int.TryParse(seconds, out sec);
+                    Snooze(sec);
                 },
                 (minutes) =>
                 {
@@ -152,17 +152,17 @@ namespace VoiceTimer.ViewModels
                 });
 
             _antiSnoozeCommand = new DelegateCommand<string>(
-                (minutes) =>
+                (seconds) =>
                 {
-                    int min = 1;
-                    int.TryParse(minutes, out min);
-                    Snooze(-min);
+                    int sec = 1;
+                    int.TryParse(seconds, out sec);
+                    Snooze(-sec);
                 },
-                (minutes) =>
+                (seconds) =>
                 {
-                    int min = 1;
-                    int.TryParse(minutes, out min);
-                    return IsAlarmSet && TimeToAlarm.TotalMinutes > min;
+                    int sec = 1;
+                    int.TryParse(seconds, out sec);
+                    return IsAlarmSet && TimeToAlarm.TotalSeconds > sec;
                 });
 
             _stopCommand = new DelegateCommand(
@@ -208,11 +208,11 @@ namespace VoiceTimer.ViewModels
         /// <summary>
         /// Snoozes the alarm time.
         /// </summary>
-        /// <param name="minutes">The snooze time.</param>
+        /// <param name="seconds">The snooze time.</param>
         /// <returns>Returns true if successful, else false.</returns>
-        public bool Snooze(int minutes)
+        public bool Snooze(int seconds)
         {
-            if (minutes == 0)
+            if (seconds == 0)
                 throw new ArgumentException("Alarm snooze time must be non zero.");
 
             if (IsAlarmSet)
@@ -225,13 +225,13 @@ namespace VoiceTimer.ViewModels
                 else
                     newAlarmBaseTime = AlarmTime;
 
-                if (minutes > 0)
+                if (seconds > 0)
                 {
-                    AlarmTime = newAlarmBaseTime.AddMinutes(minutes);
+                    AlarmTime = newAlarmBaseTime.AddSeconds(seconds);
                 }
-                else if (TimeToAlarm.TotalMinutes > minutes)
+                else if (TimeToAlarm.TotalSeconds > seconds)
                 {
-                    AlarmTime = newAlarmBaseTime.AddMinutes(minutes);
+                    AlarmTime = newAlarmBaseTime.AddSeconds(seconds);
                 }
 
                 UpdateCommands();
