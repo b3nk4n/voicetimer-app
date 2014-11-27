@@ -83,6 +83,10 @@
                             </TextBlock>
                             <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet1, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
                                 Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet1b, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
+                            <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet1c, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
+                                Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
                             <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet2, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"
                                 Style="{StaticResource ThemeTextNormalStyle}" Margin="12,1,12,1" />
                             <TextBlock Text="{Binding Path=LocalizedResources.Commands2Bullet3, Source={StaticResource LocalizedStrings}}" FontStyle="Italic"

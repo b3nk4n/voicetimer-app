@@ -128,13 +128,13 @@ namespace VoiceTimer.ViewModels
 
             // commands
             _startCommand = new DelegateCommand<string>(
-                (minutes) =>
+                (seconds) =>
                 {
-                    int min = 30;
-                    int.TryParse(minutes, out min);
-                    Set(min);
+                    int sec = 30;
+                    int.TryParse(seconds, out sec);
+                    Set(sec);
                 },
-                (minutes) =>
+                (seconds) =>
                 {
                     return !IsAlarmSet;
                 });
@@ -146,7 +146,7 @@ namespace VoiceTimer.ViewModels
                     int.TryParse(seconds, out sec);
                     Snooze(sec);
                 },
-                (minutes) =>
+                (seconds) =>
                 {
                     return IsAlarmSet;
                 });
@@ -183,20 +183,23 @@ namespace VoiceTimer.ViewModels
         /// <summary>
         /// Tries to set the alarm.
         /// </summary>
-        /// <param name="minutes">The alarm time in minutes until now.</param>
+        /// <param name="seconds">The alarm time in seconds until now.</param>
         /// <returns>Returns true if successful, else false.</returns>
-        public bool Set(int minutes)
+        public bool Set(int seconds)
         {
-            if (minutes < 1)
-                throw new ArgumentException("Alarm time must be at least 1 minute.");
+            if (seconds < 1)
+            {
+                // throw new ArgumentException("Alarm time must be at least 1 minute.");
+                seconds = 1; // because the 0 sec voice command is valid :/
+            }
 
             if (!IsAlarmSet)
             {
                 AlarmSetTime = DateTime.Now;
-                AlarmTime = DateTime.Now.AddMinutes(minutes);
+                AlarmTime = DateTime.Now.AddSeconds(seconds);
 
                 // save alarm duration
-                _lastAlarmDuration.Value = TimeSpan.FromMinutes(minutes);
+                _lastAlarmDuration.Value = TimeSpan.FromSeconds(seconds);
 
                 UpdateCommands();
                 return true;

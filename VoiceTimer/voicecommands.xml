@@ -13,9 +13,30 @@
       <Navigate Target="MainPage.xaml"/>
     </Command>
 
+    <Command Name="startTimer1b">
+      <Example>for 1 hour</Example>
+      <ListenFor>[for] {hour} hour</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer1c">
+      <Example>for 30 seconds</Example>
+      <ListenFor>[for] {second} seconds</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
     <Command Name="startTimer2">
       <Example>for 1 hour and 10 minutes</Example>
       <ListenFor>[for] {hour} hour [and] {minute} minutes</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer2b">
+      <Example>for 2 minutes and 30 seconds</Example>
+      <ListenFor>[for] {minute} minutes [and] {second} seconds</ListenFor>
       <Feedback>Turning alarm on</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
@@ -74,6 +95,69 @@
       <Feedback>Reducing alarm time by {hour} hour and {minute} minutes</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
+
+    <PhraseList Label="second">
+      <Item>1</Item>
+      <Item>2</Item>
+      <Item>3</Item>
+      <Item>4</Item>
+      <Item>5</Item>
+      <Item>6</Item>
+      <Item>7</Item>
+      <Item>8</Item>
+      <Item>9</Item>
+      <Item>10</Item>
+      <Item>11</Item>
+      <Item>12</Item>
+      <Item>13</Item>
+      <Item>14</Item>
+      <Item>15</Item>
+      <Item>16</Item>
+      <Item>17</Item>
+      <Item>18</Item>
+      <Item>19</Item>
+      <Item>20</Item>
+      <Item>21</Item>
+      <Item>22</Item>
+      <Item>23</Item>
+      <Item>24</Item>
+      <Item>25</Item>
+      <Item>26</Item>
+      <Item>27</Item>
+      <Item>28</Item>
+      <Item>29</Item>
+      <Item>30</Item>
+      <Item>31</Item>
+      <Item>32</Item>
+      <Item>33</Item>
+      <Item>34</Item>
+      <Item>35</Item>
+      <Item>36</Item>
+      <Item>37</Item>
+      <Item>38</Item>
+      <Item>39</Item>
+      <Item>40</Item>
+      <Item>41</Item>
+      <Item>42</Item>
+      <Item>43</Item>
+      <Item>44</Item>
+      <Item>45</Item>
+      <Item>46</Item>
+      <Item>47</Item>
+      <Item>48</Item>
+      <Item>49</Item>
+      <Item>50</Item>
+      <Item>51</Item>
+      <Item>52</Item>
+      <Item>53</Item>
+      <Item>54</Item>
+      <Item>55</Item>
+      <Item>56</Item>
+      <Item>57</Item>
+      <Item>58</Item>
+      <Item>59</Item>
+      <Item>60</Item>
+    </PhraseList>
 
     <PhraseList Label="minute">
       <Item>1</Item>
@@ -135,6 +219,7 @@
       <Item>57</Item>
       <Item>58</Item>
       <Item>59</Item>
+      <Item>60</Item>
     </PhraseList>
 
     <PhraseList Label="hour">
@@ -166,9 +251,30 @@
       <Navigate Target="MainPage.xaml"/>
     </Command>
 
+    <Command Name="startTimer1b">
+      <Example>for 1 hour</Example>
+      <ListenFor>[for] {hour} hour</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer1c">
+      <Example>for 30 seconds</Example>
+      <ListenFor>[for] {second} seconds</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
     <Command Name="startTimer2">
       <Example>for 1 hour and 10 minutes</Example>
       <ListenFor>[for] {hour} hour [and] {minute} minutes</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer2b">
+      <Example>for 2 minutes and 30 seconds</Example>
+      <ListenFor>[for] {minute} minutes [and] {second} seconds</ListenFor>
       <Feedback>Turning alarm on</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
@@ -227,6 +333,69 @@
       <Feedback>Reducing alarm time by {hour} hour and {minute} minutes</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
+
+    <PhraseList Label="second">
+      <Item>1</Item>
+      <Item>2</Item>
+      <Item>3</Item>
+      <Item>4</Item>
+      <Item>5</Item>
+      <Item>6</Item>
+      <Item>7</Item>
+      <Item>8</Item>
+      <Item>9</Item>
+      <Item>10</Item>
+      <Item>11</Item>
+      <Item>12</Item>
+      <Item>13</Item>
+      <Item>14</Item>
+      <Item>15</Item>
+      <Item>16</Item>
+      <Item>17</Item>
+      <Item>18</Item>
+      <Item>19</Item>
+      <Item>20</Item>
+      <Item>21</Item>
+      <Item>22</Item>
+      <Item>23</Item>
+      <Item>24</Item>
+      <Item>25</Item>
+      <Item>26</Item>
+      <Item>27</Item>
+      <Item>28</Item>
+      <Item>29</Item>
+      <Item>30</Item>
+      <Item>31</Item>
+      <Item>32</Item>
+      <Item>33</Item>
+      <Item>34</Item>
+      <Item>35</Item>
+      <Item>36</Item>
+      <Item>37</Item>
+      <Item>38</Item>
+      <Item>39</Item>
+      <Item>40</Item>
+      <Item>41</Item>
+      <Item>42</Item>
+      <Item>43</Item>
+      <Item>44</Item>
+      <Item>45</Item>
+      <Item>46</Item>
+      <Item>47</Item>
+      <Item>48</Item>
+      <Item>49</Item>
+      <Item>50</Item>
+      <Item>51</Item>
+      <Item>52</Item>
+      <Item>53</Item>
+      <Item>54</Item>
+      <Item>55</Item>
+      <Item>56</Item>
+      <Item>57</Item>
+      <Item>58</Item>
+      <Item>59</Item>
+      <Item>60</Item>
+    </PhraseList>
 
     <PhraseList Label="minute">
       <Item>1</Item>
@@ -288,6 +457,7 @@
       <Item>57</Item>
       <Item>58</Item>
       <Item>59</Item>
+      <Item>60</Item>
     </PhraseList>
 
     <PhraseList Label="hour">
@@ -319,9 +489,30 @@
       <Navigate Target="MainPage.xaml"/>
     </Command>
 
+    <Command Name="startTimer1b">
+      <Example>for 1 hour</Example>
+      <ListenFor>[for] {hour} hour</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer1c">
+      <Example>for 30 seconds</Example>
+      <ListenFor>[for] {second} seconds</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
     <Command Name="startTimer2">
       <Example>for 1 hour and 10 minutes</Example>
       <ListenFor>[for] {hour} hour [and] {minute} minutes</ListenFor>
+      <Feedback>Turning alarm on</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer2b">
+      <Example>for 2 minutes and 30 seconds</Example>
+      <ListenFor>[for] {minute} minutes [and] {second} seconds</ListenFor>
       <Feedback>Turning alarm on</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
@@ -380,6 +571,69 @@
       <Feedback>Reducing alarm time by {hour} hour and {minute} minutes</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
+
+    <PhraseList Label="second">
+      <Item>1</Item>
+      <Item>2</Item>
+      <Item>3</Item>
+      <Item>4</Item>
+      <Item>5</Item>
+      <Item>6</Item>
+      <Item>7</Item>
+      <Item>8</Item>
+      <Item>9</Item>
+      <Item>10</Item>
+      <Item>11</Item>
+      <Item>12</Item>
+      <Item>13</Item>
+      <Item>14</Item>
+      <Item>15</Item>
+      <Item>16</Item>
+      <Item>17</Item>
+      <Item>18</Item>
+      <Item>19</Item>
+      <Item>20</Item>
+      <Item>21</Item>
+      <Item>22</Item>
+      <Item>23</Item>
+      <Item>24</Item>
+      <Item>25</Item>
+      <Item>26</Item>
+      <Item>27</Item>
+      <Item>28</Item>
+      <Item>29</Item>
+      <Item>30</Item>
+      <Item>31</Item>
+      <Item>32</Item>
+      <Item>33</Item>
+      <Item>34</Item>
+      <Item>35</Item>
+      <Item>36</Item>
+      <Item>37</Item>
+      <Item>38</Item>
+      <Item>39</Item>
+      <Item>40</Item>
+      <Item>41</Item>
+      <Item>42</Item>
+      <Item>43</Item>
+      <Item>44</Item>
+      <Item>45</Item>
+      <Item>46</Item>
+      <Item>47</Item>
+      <Item>48</Item>
+      <Item>49</Item>
+      <Item>50</Item>
+      <Item>51</Item>
+      <Item>52</Item>
+      <Item>53</Item>
+      <Item>54</Item>
+      <Item>55</Item>
+      <Item>56</Item>
+      <Item>57</Item>
+      <Item>58</Item>
+      <Item>59</Item>
+      <Item>60</Item>
+    </PhraseList>
 
     <PhraseList Label="minute">
       <Item>1</Item>
@@ -441,6 +695,7 @@
       <Item>57</Item>
       <Item>58</Item>
       <Item>59</Item>
+      <Item>60</Item>
     </PhraseList>
 
     <PhraseList Label="hour">
@@ -472,9 +727,30 @@
       <Navigate Target="MainPage.xaml"/>
     </Command>
 
+    <Command Name="startTimer1b">
+      <Example>für 1 Stunde</Example>
+      <ListenFor>[für] {hour} Stunde</ListenFor>
+      <Feedback>Ich stelle den Timer</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer1c">
+      <Example>für 30 Sekunden</Example>
+      <ListenFor>[für] {second} Sekunden</ListenFor>
+      <Feedback>Ich stelle den Timer</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
     <Command Name="startTimer2">
       <Example>für 1 Stunde und 20 Minuten</Example>
       <ListenFor>[für] {hour} Stunde und {minute} Minuten</ListenFor>
+      <Feedback>Ich stelle den Timer</Feedback>
+      <Navigate Target="MainPage.xaml"/>
+    </Command>
+
+    <Command Name="startTimer2b">
+      <Example>für 2 Minuten und 30 Sekunden</Example>
+      <ListenFor>[für] {minute} Minuten und {second} Sekunden</ListenFor>
       <Feedback>Ich stelle den Timer</Feedback>
       <Navigate Target="MainPage.xaml"/>
     </Command>
@@ -527,6 +803,69 @@
       <Navigate Target="MainPage.xaml"/>
     </Command>
 
+    <PhraseList Label="second">
+      <Item>1</Item>
+      <Item>2</Item>
+      <Item>3</Item>
+      <Item>4</Item>
+      <Item>5</Item>
+      <Item>6</Item>
+      <Item>7</Item>
+      <Item>8</Item>
+      <Item>9</Item>
+      <Item>10</Item>
+      <Item>11</Item>
+      <Item>12</Item>
+      <Item>13</Item>
+      <Item>14</Item>
+      <Item>15</Item>
+      <Item>16</Item>
+      <Item>17</Item>
+      <Item>18</Item>
+      <Item>19</Item>
+      <Item>20</Item>
+      <Item>21</Item>
+      <Item>22</Item>
+      <Item>23</Item>
+      <Item>24</Item>
+      <Item>25</Item>
+      <Item>26</Item>
+      <Item>27</Item>
+      <Item>28</Item>
+      <Item>29</Item>
+      <Item>30</Item>
+      <Item>31</Item>
+      <Item>32</Item>
+      <Item>33</Item>
+      <Item>34</Item>
+      <Item>35</Item>
+      <Item>36</Item>
+      <Item>37</Item>
+      <Item>38</Item>
+      <Item>39</Item>
+      <Item>40</Item>
+      <Item>41</Item>
+      <Item>42</Item>
+      <Item>43</Item>
+      <Item>44</Item>
+      <Item>45</Item>
+      <Item>46</Item>
+      <Item>47</Item>
+      <Item>48</Item>
+      <Item>49</Item>
+      <Item>50</Item>
+      <Item>51</Item>
+      <Item>52</Item>
+      <Item>53</Item>
+      <Item>54</Item>
+      <Item>55</Item>
+      <Item>56</Item>
+      <Item>57</Item>
+      <Item>58</Item>
+      <Item>59</Item>
+      <Item>60</Item>
+    </PhraseList>
+
     <PhraseList Label="minute">
       <Item>1</Item>
       <Item>2</Item>
@@ -587,9 +926,11 @@
       <Item>57</Item>
       <Item>58</Item>
       <Item>59</Item>
+      <Item>60</Item>
     </PhraseList>
 
     <PhraseList Label="hour">
+      <Item>0</Item>
       <Item>1</Item>
       <Item>2</Item>
       <Item>3</Item>
@@ -602,6 +943,17 @@
       <Item>10</Item>
       <Item>11</Item>
       <Item>12</Item>
+      <Item>13</Item>
+      <Item>14</Item>
+      <Item>15</Item>
+      <Item>16</Item>
+      <Item>17</Item>
+      <Item>18</Item>
+      <Item>19</Item>
+      <Item>20</Item>
+      <Item>21</Item>
+      <Item>22</Item>
+      <Item>23</Item>
     </PhraseList>
 
   </CommandSet>

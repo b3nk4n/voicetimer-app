@@ -166,16 +166,30 @@ namespace VoiceTimer
         {
             string hours;
             string minutes;
+            string seconds;
             switch (commandName)
             {
                 case "startTimer1":
                     minutes = NavigationContext.QueryString["minute"];
                     HandleStartTimer1Command(minutes);
                     break;
+                case "startTimer1b":
+                    hours = NavigationContext.QueryString["hour"];
+                    HandleStartTimer2Command(hours, "0");
+                    break;
+                case "startTimer1c":
+                    seconds = NavigationContext.QueryString["second"];
+                    HandleStartTimer1cCommand(seconds);
+                    break;
                 case "startTimer2":
                     hours = NavigationContext.QueryString["hour"];
                     minutes = NavigationContext.QueryString["minute"];
                     HandleStartTimer2Command(hours, minutes);
+                    break;
+                case "startTimer2b":
+                    minutes = NavigationContext.QueryString["minute"];
+                    seconds = NavigationContext.QueryString["second"];
+                    HandleStartTimer2bCommand(minutes, seconds);
                     break;
                 case "stopTimer":
                     HandleStopTimerCommand();
@@ -216,7 +230,19 @@ namespace VoiceTimer
             int min = 30;
             int.TryParse(minutes, out min);
 
-            StartTimer(min);
+            StartTimer(min * 60, true);
+        }
+
+        /// <summary>
+        /// Handles the start timer command.
+        /// </summary>
+        /// <param name="seconds">The length of the timer in seconds.</param>
+        private void HandleStartTimer1cCommand(string seconds)
+        {
+            int sec = 30;
+            int.TryParse(seconds, out sec);
+
+            StartTimer(sec, false);
         }
 
         /// <summary>
@@ -230,20 +256,43 @@ namespace VoiceTimer
             int min = 30;
             int.TryParse(minutes, out min);
             int.TryParse(hours, out h);
-            int totalMins = 60 * h + min;
+            int totalSec = 3600 * h + 60 * min;
 
-            StartTimer(totalMins);
+            StartTimer(totalSec, true);
+        }
+
+        /// <summary>
+        /// Handles the start timer command.
+        /// </summary>
+        /// <param name="minutes">The minutes to set.</param>
+        /// <param name="seconds">The length to set in seconds.</param>
+        private void HandleStartTimer2bCommand(string minutes, string seconds)
+        {
+            int min = 0;
+            int sec = 30;
+            int.TryParse(minutes, out min);
+            int.TryParse(seconds, out sec);
+            int totalSec = 60 * min + sec;
+
+            StartTimer(totalSec, false);
         }
 
         /// <summary>
         /// Starts the timer and gives audio feedback.
         /// </summary>
-        /// <param name="minutes">The length to set in minutes.</param>
-        private void StartTimer(int minutes)
+        /// <param name="seconds">The length to set in seconds.</param>
+        private void StartTimer(int seconds, bool sayInMinutes)
         {
-            if (AlarmClockViewModel.Instance.Set(minutes))
+            if (AlarmClockViewModel.Instance.Set(seconds))
             {
-                GiveVoiceFeedback(string.Format(AppResources.SpeakStartTimer, minutes));
+                if (sayInMinutes)
+                {
+                    GiveVoiceFeedback(string.Format(AppResources.SpeakStartTimer, seconds / 60));
+                }
+                else
+                {
+                    GiveVoiceFeedback(string.Format(AppResources.SpeakStartTimerSeconds, seconds));
+                }
             }
             else
                 GiveVoiceFeedback(AppResources.SpeakAlarmAlreadySet);
@@ -436,8 +485,8 @@ namespace VoiceTimer
         /// <param name="e">The event args.</param>
         private void StartAlarmClick(object sender, RoutedEventArgs e)
         {
-            var minutes = (int)CustomNapTimePicker.Value.Value.TotalMinutes;
-            AlarmClockViewModel.Instance.Set(minutes);
+            var seconds = (int)CustomNapTimePicker.Value.Value.TotalSeconds;
+            AlarmClockViewModel.Instance.Set(seconds);
             ActivateAnimation.Begin();
         }
 
@@ -481,10 +530,10 @@ namespace VoiceTimer
         private void UpdatePlusMinusButtons()
         {
             // update button view state in inactive mode.
-            var minutes = (int)CustomNapTimePicker.Value.Value.TotalMinutes;
+            var seconds = (int)CustomNapTimePicker.Value.Value.TotalSeconds;
             bool noAlarmOn = !AlarmClockViewModel.Instance.IsAlarmSet;
 
-            ButtonMinus1.IsEnabled = minutes > 1;
+            ButtonMinus1.IsEnabled = seconds > 1;
             ButtonPlus1.IsEnabled = true;
         }
 
@@ -493,8 +542,8 @@ namespace VoiceTimer
         /// </summary>
         private void UpdatePreviewTime()
         {
-            var minutes = (int)CustomNapTimePicker.Value.Value.TotalMinutes;
-            AlarmClockViewModel.Instance.AlarmPreviewTime = DateTime.Now.AddMinutes(minutes);
+            var seconds = (int)CustomNapTimePicker.Value.Value.TotalSeconds;
+            AlarmClockViewModel.Instance.AlarmPreviewTime = DateTime.Now.AddSeconds(seconds);
         }
     }
 }

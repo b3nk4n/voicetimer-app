@@ -194,7 +194,7 @@
     <comment>SettingsPage</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.3</value>
+    <value>1.3.1</value>
     <comment>General</comment>
   </data>
   <data name="FeedbackBodyText" xml:space="preserve">
@@ -374,6 +374,18 @@ Showing us some love on the store helps us to continue to work on the app and ma
   </data>
   <data name="Commands1Message_8_1_OS" xml:space="preserve">
     <value>Press and hold the Search-Button of you phone until the voice input dialog pops up.</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="SpeakStartTimerSeconds" xml:space="preserve">
+    <value>Timer is set for {0} seconds.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="Commands2Bullet1b" xml:space="preserve">
+    <value>- " ...for 3 minutes and 30 seconds. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet1c" xml:space="preserve">
+    <value>- " ...for 45 seconds. "</value>
     <comment>InfoPage</comment>
   </data>
 </root>

@@ -197,7 +197,7 @@
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" VerticalAlignment="Bottom" toolkit:TurnstileFeatherEffect.FeatheringIndex="1">
-                    <TextBlock Grid.Row="0" Text="{Binding AlarmPreviewTime, Converter={StaticResource DateToTimeConverter}, ConverterParameter=t}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="22"/>
+                    <TextBlock Grid.Row="0" Text="{Binding AlarmPreviewTime, Converter={StaticResource DateToTimeConverter}, ConverterParameter=T}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0" FontSize="22"/>
                     <c4f:TimeSpanPicker x:Name="CustomNapTimePicker" Value="0:20:00" FontSize="108" HorizontalAlignment="Center"
                                     Template="{StaticResource TimeSpanCustomStyle}" Min="0:01:00" IsHitTestVisible="False" />
                 </Grid>

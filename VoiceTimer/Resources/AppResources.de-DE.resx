@@ -150,7 +150,7 @@
     <comment>General</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.3</value>
+    <value>1.3.1</value>
     <comment>General</comment>
   </data>
   <data name="Commands1Message" xml:space="preserve">
@@ -167,6 +167,14 @@
   </data>
   <data name="Commands2Bullet1" xml:space="preserve">
     <value>- " ...für 1 Stunde und 20 Minuten. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet1b" xml:space="preserve">
+    <value>- " ...für 3 Minuten und 25 Sekunden. "</value>
+    <comment>InfoPage</comment>
+  </data>
+  <data name="Commands2Bullet1c" xml:space="preserve">
+    <value>- " ...für 45 Sekunden. "</value>
     <comment>InfoPage</comment>
   </data>
   <data name="Commands2Bullet2" xml:space="preserve">
@@ -318,6 +326,10 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
   </data>
   <data name="SpeakStartTimer" xml:space="preserve">
     <value>Stelle Timer auf {0} Minuten.</value>
+    <comment>Voice</comment>
+  </data>
+  <data name="SpeakStartTimerSeconds" xml:space="preserve">
+    <value>Stelle Timer auf {0} Sekunden.</value>
     <comment>Voice</comment>
   </data>
   <data name="SpeakStopTimer" xml:space="preserve">

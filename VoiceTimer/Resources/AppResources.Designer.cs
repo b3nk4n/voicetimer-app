@@ -133,7 +133,7 @@ namespace VoiceTimer.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.3 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.3.1 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
@@ -174,6 +174,24 @@ namespace VoiceTimer.Resources {
         public static string Commands2Bullet1 {
             get {
                 return ResourceManager.GetString("Commands2Bullet1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die - &quot; ...for 3 minutes and 30 seconds. &quot; ähnelt.
+        /// </summary>
+        public static string Commands2Bullet1b {
+            get {
+                return ResourceManager.GetString("Commands2Bullet1b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die - &quot; ...for 45 seconds. &quot; ähnelt.
+        /// </summary>
+        public static string Commands2Bullet1c {
+            get {
+                return ResourceManager.GetString("Commands2Bullet1c", resourceCulture);
             }
         }
         
@@ -495,6 +513,15 @@ namespace VoiceTimer.Resources {
         public static string SpeakStartTimer {
             get {
                 return ResourceManager.GetString("SpeakStartTimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Timer is set for {0} seconds. ähnelt.
+        /// </summary>
+        public static string SpeakStartTimerSeconds {
+            get {
+                return ResourceManager.GetString("SpeakStartTimerSeconds", resourceCulture);
             }
         }
         
