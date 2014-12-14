@@ -56,6 +56,8 @@ namespace VoiceTimer
                     };
                     timer.Interval = TimeSpan.FromSeconds(1);
                     timer.Start();
+
+                    UpdatePreviewTime();
                 };
 
             ActivateAnimation.Completed += (s, e) =>
@@ -509,10 +511,10 @@ namespace VoiceTimer
             value = value.Add(TimeSpan.FromSeconds(minDelta));
             
             // verify at least 1 sec
-            if (value.TotalSeconds < 1)
-                value = TimeSpan.FromSeconds(1);
-
-            CustomNapTimePicker.Value = value;
+            if (value.TotalSeconds > 0)
+            {
+                CustomNapTimePicker.Value = value;
+            }
         }
 
         /// <summary>

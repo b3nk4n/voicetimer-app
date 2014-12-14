@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutTitle" xml:space="preserve">
-    <value>hilfe</value>
+    <value>Hilfe</value>
     <comment>AboutPage</comment>
   </data>
   <data name="Alarm" xml:space="preserve">
@@ -130,11 +130,11 @@
     <comment>AlertDialog</comment>
   </data>
   <data name="AppBarInfo" xml:space="preserve">
-    <value>info</value>
+    <value>Info</value>
     <comment>AppBar</comment>
   </data>
   <data name="AppBarOffline" xml:space="preserve">
-    <value>offline gehen</value>
+    <value>Offline gehen</value>
     <comment>AppBar</comment>
   </data>
   <data name="ApplicationAuthor" xml:space="preserve">
@@ -150,7 +150,7 @@
     <comment>General</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.3.1</value>
+    <value>1.4</value>
     <comment>General</comment>
   </data>
   <data name="Commands1Message" xml:space="preserve">
@@ -218,7 +218,7 @@
     <comment>InfoPage</comment>
   </data>
   <data name="CommandsHeader" xml:space="preserve">
-    <value>sprachbefehle</value>
+    <value>Sprachbefehle</value>
     <comment>InfoPage</comment>
   </data>
   <data name="CommandsIntro" xml:space="preserve">
@@ -265,15 +265,15 @@ Erzählen Sie uns von Ihren Erfahrungen oder teilen Sie uns Vorschläge mit, dam
     <comment>FeedbackDialogControl</comment>
   </data>
   <data name="MoreApps" xml:space="preserve">
-    <value>mehr apps</value>
+    <value>Mehr apps</value>
     <comment>AboutPage</comment>
   </data>
   <data name="PrivacyInfo" xml:space="preserve">
-    <value>datenschutz informationen</value>
+    <value>Datenschutz-Informationen</value>
     <comment>About Page</comment>
   </data>
   <data name="RateAndReview" xml:space="preserve">
-    <value>bewerten und kritik schreiben</value>
+    <value>Bewerten und Kritik schreiben</value>
     <comment>AboutPage</comment>
   </data>
   <data name="RatingMessage10Text" xml:space="preserve">
@@ -309,7 +309,7 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>einstellungen</value>
+    <value>Einstellungen</value>
     <comment>SettingsPage</comment>
   </data>
   <data name="SpeakAlarmAlreadySet" xml:space="preserve">
@@ -349,7 +349,7 @@ Das würde uns sehr motivieren um die App noch besser zu machen!</value>
     <comment>Voice</comment>
   </data>
   <data name="SupportAndFeedback" xml:space="preserve">
-    <value>hilfe und feedback</value>
+    <value>Hilfe und Feedback</value>
     <comment>About Page</comment>
   </data>
   <data name="SuppressLockScreen" xml:space="preserve">

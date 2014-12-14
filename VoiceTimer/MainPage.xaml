@@ -202,12 +202,30 @@
                                     Template="{StaticResource TimeSpanCustomStyle}" Min="0:01:00" IsHitTestVisible="False" />
                 </Grid>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"  toolkit:TurnstileFeatherEffect.FeatheringIndex="2" >
-                    <RepeatButton x:Name="ButtonMinus1" Width="112" Height="112" Margin="12,0,54,0" Style="{StaticResource RoundButton}" Tag="-1" Click="ChangeAlarmTimeClick" Interval="1">
+                    <!--<RepeatButton Width="112" Height="112" Margin="12,0,54,0" Style="{StaticResource RoundButton}" Interval="1">
                         <TextBlock Text="-" FontSize="64" Margin="0,-16,2,0" />
                     </RepeatButton>
-                    <RepeatButton x:Name="ButtonPlus1" Width="112" Height="112" Margin="54,0,10,0" Style="{StaticResource RoundButton}" Tag="1" Click="ChangeAlarmTimeClick" Interval="1">
+                    <RepeatButton  Width="112" Height="112" Margin="54,0,10,0" Style="{StaticResource RoundButton}" Tag="1" Click="ChangeAlarmTimeClick" Interval="1">
                         <TextBlock Text="+" FontSize="64" Margin="0,-16,2,0" />
+                    </RepeatButton>-->
+
+                    <RepeatButton Tag="-60" Click="ChangeAlarmTimeClick" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="12,0,0,0">
+                        <Path Width="38.75" Height="26" Margin="0,0,6,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 35.75,25L 19,38L 35.75,51L 35.75,25 Z M 57.75,25L 41,38L 57.75,51L 57.75,25 Z "/>
                     </RepeatButton>
+                    <RepeatButton x:Name="ButtonMinus1" Tag="-1" Click="ChangeAlarmTimeClick" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="0,0,8,0">
+                        <Path Width="19.375" Height="26" Margin="0,0,8,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 35.75,25L 19,38L 35.75,51L 35.75,25 Z"/>
+                    </RepeatButton>
+                    <RepeatButton x:Name="ButtonPlus1" Tag="1" Click="ChangeAlarmTimeClick" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="8,0,0,0">
+                        <Path Width="19.375" Height="26" Margin="8,0,0,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 19,25L 35.75,38L 19,51L 19,25 Z"/>
+                    </RepeatButton>
+                    <RepeatButton Tag="60" Click="ChangeAlarmTimeClick" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="0,0,12,0">
+                        <Path Width="38.75" Height="26" Margin="6,0,0,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 19,25L 35.75,38L 19,51L 19,25 Z M 41,25L 57.75,38L 41,51L 41,25 Z "/>
+                    </RepeatButton>
+
                 </StackPanel>
                 <Button Grid.Row="3" Click="StartAlarmClick"  toolkit:TurnstileFeatherEffect.FeatheringIndex="4"
                             Width="176" Height="176" Style="{StaticResource RoundButton}">
@@ -231,13 +249,21 @@
                            Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}"/>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top"  toolkit:TurnstileFeatherEffect.FeatheringIndex="2"
                             Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}">
+                    <RepeatButton Command="{Binding AntiSnoozeCommand}" CommandParameter="60" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="12,0,0,0">
+                        <Path Width="38.75" Height="26" Margin="0,0,6,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 35.75,25L 19,38L 35.75,51L 35.75,25 Z M 57.75,25L 41,38L 57.75,51L 57.75,25 Z "/>
+                    </RepeatButton>
                     <RepeatButton Command="{Binding AntiSnoozeCommand}" CommandParameter="1" Interval="1"
-                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="12,0,54,0">
-                        <TextBlock Text="-" FontSize="64" Margin="0,-16,2,0" />
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="0,0,8,0">
+                        <Path Width="19.375" Height="26" Margin="0,0,8,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 35.75,25L 19,38L 35.75,51L 35.75,25 Z"/>
                     </RepeatButton>
                     <RepeatButton Command="{Binding SnoozeCommand}" CommandParameter="1" Interval="1"
-                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="54,0,12,0">
-                        <TextBlock Text="+" FontSize="64" Margin="0,-16,2,0" />
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="8,0,0,0">
+                        <Path Width="19.375" Height="26" Margin="8,0,0,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 19,25L 35.75,38L 19,51L 19,25 Z"/>
+                    </RepeatButton>
+                    <RepeatButton Command="{Binding SnoozeCommand}" CommandParameter="60" Interval="1"
+                            Width="112" Height="112" Style="{StaticResource RoundButton}" Margin="0,0,12,0">
+                        <Path Width="38.75" Height="26" Margin="6,0,0,0" Stretch="Fill" Fill="{StaticResource PhoneForegroundBrush}" Data="F1 M 19,25L 35.75,38L 19,51L 19,25 Z M 41,25L 57.75,38L 41,51L 41,25 Z "/>
                     </RepeatButton>
                 </StackPanel>
                 <Grid Grid.Row="2" Visibility="{Binding IsAlarmNotRinging, Converter={StaticResource BoolToVisibilityConverter}}"  toolkit:TurnstileFeatherEffect.FeatheringIndex="4">
