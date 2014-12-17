@@ -36,6 +36,7 @@ namespace VoiceTimer.Controls
             ContributorsListVisibility = System.Windows.Visibility.Visible;
             IList<ContributorModel> contributors = new List<ContributorModel>();
             contributors.Add(new ContributorModel("/Assets/Images/icon.png", "D. Baranovskiy (The Noun Project)"));
+            contributors.Add(new ContributorModel("/Assets/Images/feedback.png", "Klaus Zehetner"));
             SetContributorsList(contributors);
         }
     }
