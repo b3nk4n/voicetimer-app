@@ -133,7 +133,7 @@ namespace VoiceTimer.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 1.4 ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die 1.5 ähnelt.
         /// </summary>
         public static string ApplicationVersion {
             get {
@@ -241,7 +241,7 @@ namespace VoiceTimer.Resources {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  &quot;Voice Timer...&quot;   ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die  &quot;Timer...&quot;   ähnelt.
         /// </summary>
         public static string Commands2Message2 {
             get {

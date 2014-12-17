@@ -194,7 +194,7 @@
     <comment>SettingsPage</comment>
   </data>
   <data name="ApplicationVersion" xml:space="preserve">
-    <value>1.4</value>
+    <value>1.5</value>
     <comment>General</comment>
   </data>
   <data name="FeedbackBodyText" xml:space="preserve">
@@ -301,7 +301,7 @@ Showing us some love on the store helps us to continue to work on the app and ma
     <comment>InfoPage</comment>
   </data>
   <data name="Commands2Message2" xml:space="preserve">
-    <value> "Voice Timer..."  </value>
+    <value> "Timer..."  </value>
     <comment>InfoPage</comment>
   </data>
   <data name="Commands2Message3" xml:space="preserve">
