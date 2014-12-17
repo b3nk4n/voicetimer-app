@@ -369,7 +369,7 @@ namespace VoiceTimer
         /// <param name="minutes">The time to extend in minutes.</param>
         private void ExtendAlarmTime(int minutes)
         {
-            if (AlarmClockViewModel.Instance.Snooze(minutes))
+            if (AlarmClockViewModel.Instance.Snooze(minutes * 60))
                 GiveVoiceFeedback(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
             else
                 GiveVoiceFeedback(AppResources.SpeakNoAlarmSet);
@@ -384,7 +384,7 @@ namespace VoiceTimer
             int min = 5;
             int.TryParse(minutes, out min);
 
-            ReduceAlarmTime( min);
+            ReduceAlarmTime(min);
         }
 
         /// <summary>
@@ -409,7 +409,7 @@ namespace VoiceTimer
         /// <param name="minutes">The time to reduce in minutes.</param>
         private void ReduceAlarmTime(int minutes)
         {
-            if (AlarmClockViewModel.Instance.Snooze(-minutes))
+            if (AlarmClockViewModel.Instance.Snooze(-minutes * 60))
             {
                 if (AlarmClockViewModel.Instance.TimeToAlarm.TotalSeconds > 0)
                     GiveVoiceFeedback(string.Format(AppResources.SpeakTimeShifted, (int)AlarmClockViewModel.Instance.TimeToAlarm.TotalMinutes));
