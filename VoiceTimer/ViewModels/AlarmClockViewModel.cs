@@ -199,7 +199,7 @@ namespace VoiceTimer.ViewModels
                 AlarmTime = DateTime.Now.AddSeconds(seconds);
 
                 // save alarm duration
-                _lastAlarmDuration.Value = TimeSpan.FromSeconds(seconds);
+                LastAlarmDuration = TimeSpan.FromSeconds(seconds);
 
                 UpdateCommands();
                 return true;
@@ -602,6 +602,11 @@ namespace VoiceTimer.ViewModels
             get
             {
                 return _lastAlarmDuration.Value;
+            }
+            private set
+            {
+                _lastAlarmDuration.Value = value;
+                NotifyPropertyChanged("LastAlarmDuration");
             }
         }
 

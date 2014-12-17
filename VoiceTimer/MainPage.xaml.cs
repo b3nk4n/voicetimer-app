@@ -72,11 +72,11 @@ namespace VoiceTimer
             BuildLocalizedApplicationBar();
 
             // register startup actions
-            StartupActionManager.Instance.Register(5, ActionExecutionRule.Equals, () =>
+            StartupActionManager.Instance.Register(10, ActionExecutionRule.Equals, () =>
             {
                 FeedbackManager.Instance.StartFirst();
             });
-            StartupActionManager.Instance.Register(10, ActionExecutionRule.Equals, () =>
+            StartupActionManager.Instance.Register(25, ActionExecutionRule.Equals, () =>
             {
                 FeedbackManager.Instance.StartSecond();
             });
@@ -474,6 +474,9 @@ namespace VoiceTimer
         /// <param name="e">The event args.</param>
         private void StopButtonClick(object sender, RoutedEventArgs e)
         {
+            // ensure the last alarm time is going to be displayed.
+            CustomNapTimePicker.Value = AlarmClockViewModel.Instance.LastAlarmDuration;
+
             DeactivateAnimation.Begin();
 
             UpdatePlusMinusButtons();
